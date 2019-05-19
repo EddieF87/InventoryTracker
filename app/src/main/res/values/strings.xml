@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">StockTracker</string>
+    <string name="search">Search</string>
+    <string name="button_save">Save</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_codes">Codes</string>
+    <string name="error">Error!</string>
+</resources>

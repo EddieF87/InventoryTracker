@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="16dp"
+>
+
+
+    <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1">
+    </Space>
+    <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:padding="@dimen/small_padding"
+            android:layout_marginBottom="@dimen/big_padding"
+            android:layout_marginTop="@dimen/big_padding"
+            android:textSize="36sp"/>
+
+    <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1">
+    </Space>
+
+    <Button android:id="@+id/add_code_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textSize="12sp"
+            android:text="Add Code"/>
+    <TextView
+            android:id="@+id/codes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:padding="@dimen/small_padding"
+            android:layout_marginBottom="@dimen/big_padding"
+            android:layout_marginTop="@dimen/big_padding"
+            android:textSize="36sp"/>
+
+    <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1">
+    </Space>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+        <ImageButton android:id="@+id/subtract_quantity"
+                     android:layout_width="wrap_content" android:layout_height="wrap_content"
+                     android:src="@drawable/baseline_remove_circle_outline_black_48dp"
+                     android:tint="@color/colorPrimary"
+                     android:backgroundTint="#FFFFFF"
+        />
+
+        <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1">
+        </Space>
+        <TextView
+                android:id="@+id/quantity_display"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="36sp"
+        />
+
+        <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1">
+        </Space>
+
+        <ImageButton android:id="@+id/add_quantity"
+                     android:layout_width="wrap_content" android:layout_height="wrap_content"
+                     android:src="@drawable/baseline_add_circle_outline_black_48dp"
+                     android:tint="@color/colorPrimary"
+                     android:backgroundTint="#FFFFFF"
+        />
+
+
+    </LinearLayout>
+
+
+    <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1">
+    </Space>
+    <Button
+            android:id="@+id/button_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/button_save"/>
+
+
+    <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1">
+    </Space>
+</LinearLayout>

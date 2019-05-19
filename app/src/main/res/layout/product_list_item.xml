@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+                                                       android:layout_height="wrap_content"
+                                                       android:layout_margin="8dp"
+                                                       app:strokeColor="@color/colorPrimary"
+                                                       app:strokeWidth="2dp"
+                                                       app:contentPadding="8dp"
+    >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+        >
+            <TextView
+                    android:id="@+id/productCodesView"
+                    android:text="21011"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="24sp"/>
+            <TextView
+                    android:id="@+id/nameView"
+                    android:text="TextView"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"/>
+            <TextView
+                    android:id="@+id/quantityView"
+                    android:text="11"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:textSize="30sp"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</FrameLayout>

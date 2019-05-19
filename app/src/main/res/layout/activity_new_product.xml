@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical" android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="16dp"
+>
+
+    <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1">
+    </Space>
+
+    <EditText
+            android:id="@+id/new_edit_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/hint_name"
+            android:inputType="textAutoComplete"
+            android:padding="@dimen/small_padding"
+            android:layout_marginBottom="@dimen/big_padding"
+            android:layout_marginTop="@dimen/big_padding"
+            android:textSize="36sp"/>
+
+    <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1">
+    </Space>
+
+    <EditText
+            android:id="@+id/new_edit_codes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/hint_codes"
+            android:inputType="number"
+            android:padding="@dimen/small_padding"
+            android:layout_marginBottom="@dimen/big_padding"
+            android:layout_marginTop="@dimen/big_padding"
+            android:textSize="36sp"/>
+
+    <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1">
+    </Space>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+        <ImageButton android:id="@+id/new_subtract_quantity"
+                     android:layout_width="wrap_content" android:layout_height="wrap_content"
+                     android:src="@drawable/baseline_remove_circle_outline_black_48dp"
+                     android:tint="@color/colorPrimary"
+                     android:backgroundTint="#FFFFFF"
+        />
+        <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1">
+        </Space>
+        <TextView
+                android:id="@+id/new_quantity_display"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="36sp"
+        />
+        <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1">
+        </Space>
+
+        <ImageButton android:id="@+id/new_add_quantity"
+                     android:layout_width="wrap_content" android:layout_height="wrap_content"
+                     android:src="@drawable/baseline_add_circle_outline_black_48dp"
+                     android:tint="@color/colorPrimary"
+                     android:backgroundTint="#FFFFFF"
+        />
+    </LinearLayout>
+
+    <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1">
+    </Space>
+
+    <Button
+            android:id="@+id/new_button_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="@string/button_save"
+            android:textSize="36sp"/>
+
+    <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1">
+    </Space>
+</LinearLayout>
