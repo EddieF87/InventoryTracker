@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_new_product.*
 import kotlinx.android.synthetic.main.activity_product.*
 
 class NewProductActivity : AppCompatActivity() {
-    private var quantity : Int = 0
+    private var quantity: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,8 @@ class NewProductActivity : AppCompatActivity() {
 
             val name = new_edit_name.text.toString()
             quantity = new_quantity_display.text.toString().toInt()
-            val codes = intArrayOf(new_edit_codes.text.toString().toIntOrNull() ?: 0)
+            val code = new_edit_codes.text.toString().toIntOrNull()
+            val codes = if (code != null) intArrayOf(code) else intArrayOf()
 
             productIntent.putExtra(PRODUCT_NAME, name)
             productIntent.putExtra(PRODUCT_QUANTITY, quantity)

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.product_list_item.view.*
 import xyz.sleekstats.stocktracker.model.Code
 import xyz.sleekstats.stocktracker.model.ProductWithCodes
-import java.lang.StringBuilder
 
 class ProductRecyclerViewAdapter internal constructor(context: Context, val productClickListener: ItemClickListener) :
     RecyclerView.Adapter<ProductRecyclerViewAdapter.ProductViewHolder>(), Filterable {
@@ -28,7 +27,7 @@ class ProductRecyclerViewAdapter internal constructor(context: Context, val prod
 
         override fun onClick(view: View?) {
             val id = view?.tag as Long
-            if(id >= 0) productClickListener.onItemClick(id)
+            if (id >= 0) productClickListener.onItemClick(id)
         }
 
         val productCodesView: TextView = view.productCodesView
@@ -76,7 +75,6 @@ class ProductRecyclerViewAdapter internal constructor(context: Context, val prod
     }
 
     fun setProducts(products: List<ProductWithCodes>) {
-        Log.d("moly", "setProducts  ${products.size}")
         productDataSet = products
         originalDataSet = productDataSet
         displayDataSet = productDataSet
@@ -86,14 +84,22 @@ class ProductRecyclerViewAdapter internal constructor(context: Context, val prod
     fun filterSearch(charSequence: CharSequence): List<ProductWithCodes> {
         val charString = charSequence.toString()
         return if (charString.isEmpty()) originalDataSet else originalDataSet.filter {
-            it.product?.name?.toLowerCase()?.contains(
+            (it.product?.name?.toLowerCase()?.contains(
                 charString.toLowerCase()
-            ) ?: false
+            ) ?: filterCodes(it.codes, charString)) || filterCodes(it.codes, charString)
         }
+    }
+
+    private fun filterCodes(codes: List<Code>, compareString: String): Boolean {
+        codes.forEach {
+            if (it.code.toString().contains(compareString)) {
+                return true
+            }
+        }
+        return false
     }
 
     interface ItemClickListener {
         fun onItemClick(productID: Long)
     }
-
 }

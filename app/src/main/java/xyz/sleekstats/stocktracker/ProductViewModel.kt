@@ -2,7 +2,6 @@ package xyz.sleekstats.stocktracker
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +14,7 @@ import xyz.sleekstats.stocktracker.model.ProductWithCodes
 
 class ProductViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: ProductRepo
-    val product: MutableLiveData<ProductWithCodes> = MutableLiveData()
+    val productLiveData: MutableLiveData<ProductWithCodes> = MutableLiveData()
 
     init {
         val db = ProductDB.getDatabase(application)
@@ -23,10 +22,9 @@ class ProductViewModel(application: Application) : AndroidViewModel(application)
         val codesDao = db.codesDao()
         val productWithCodesDao = db.productWithCodesDao()
         repository = ProductRepo(productDao, codesDao, productWithCodesDao)
-//        product = repository.getProduct(-1)
     }
 
-    fun queryProduct(id: Long) = viewModelScope.launch(Dispatchers.IO) { product.postValue(repository.getProduct(id)) }
+    fun queryProduct(id: Long) = viewModelScope.launch(Dispatchers.IO) { productLiveData.postValue(repository.getProduct(id)) }
 
     fun insertCode(code: Code) = viewModelScope.launch(Dispatchers.IO) {
         repository.insertCode(code)

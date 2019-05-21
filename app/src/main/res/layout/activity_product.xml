@@ -31,7 +31,7 @@
     <Button android:id="@+id/add_code_button" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:textSize="12sp"
-            android:text="Add Code"/>
+            android:text="@string/add_code"/>
     <TextView
             android:id="@+id/codes"
             android:layout_width="match_parent"
@@ -91,11 +91,11 @@
             android:layout_weight="1">
     </Space>
     <Button
-            android:id="@+id/button_save"
+            android:id="@+id/button_back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:text="@string/button_save"/>
+            android:text="@string/button_back"/>
 
 
     <Space

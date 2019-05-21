@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">StockTracker</string>
+    <string name="app_name">InventoryTracker</string>
     <string name="search">Search</string>
     <string name="button_save">Save</string>
     <string name="hint_name">Name</string>
     <string name="hint_codes">Codes</string>
     <string name="error">Error!</string>
+    <string name="export">Export</string>
+    <string name="button_back">Back</string>
+    <string name="add_code">Add Code</string>
 </resources>

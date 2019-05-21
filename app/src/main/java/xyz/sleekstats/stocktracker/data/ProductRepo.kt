@@ -19,11 +19,9 @@ class ProductRepo(
     @WorkerThread
     suspend fun insert(productWithCodes: ProductWithCodes) {
         val product = productWithCodes.product
-        Log.d("moly", "product  ${product?.name}")
         if (product != null) productDao.insert(product)
         val codes = productWithCodes.codes
         if (codes.isNotEmpty()) codes.forEach {
-            Log.d("moly", "codes  ${it.code}")
             codeDao.insert(it)
         }
     }
@@ -34,13 +32,12 @@ class ProductRepo(
     @WorkerThread
     suspend fun insertCode(code: Code) {
         codeDao.insert(code)
-        Log.d("moly", "insertCode")
     }
 
     fun getProduct(id: Long) : ProductWithCodes = productWithCodesDao.getProductWithCodes(id)
 
     @WorkerThread
-    suspend fun updateProduct(product: Product) {
+    fun updateProduct(product: Product) {
         productDao.update(product)
     }
 }

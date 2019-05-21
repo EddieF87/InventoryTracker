@@ -1,8 +1,8 @@
 package xyz.sleekstats.stocktracker
 
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
-import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -21,18 +21,15 @@ class ProductActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("tootoo", "onCreate")
         setContentView(R.layout.activity_product)
 
-        Log.d("tootoo", "setContentView")
         productViewModel = ViewModelProviders.of(this).get(ProductViewModel::class.java)
 
 
         productID = intent.getLongExtra("productID", savedInstanceState?.getLong("productID") ?: -1)
         if (productID < 0) finish()
-        Log.d("tootoo", "productID  $productID")
 
-        productViewModel.product.observe(this, Observer { product ->
+        productViewModel.productLiveData.observe(this, Observer { product ->
             product?.let { updateUI(it) }
         })
         productViewModel.queryProduct(id = productID)
@@ -44,20 +41,46 @@ class ProductActivity : AppCompatActivity() {
             changeQuantity(-1)
         }
         add_code_button.setOnClickListener {
-            withEditText(it)
+            addCodeDialog()
+        }
+        name.setOnClickListener {
+            editNameDialog()
+        }
+        button_back.setOnClickListener {
+            finish()
         }
     }
 
-    fun withEditText(view: View) {
+    private fun addCodeDialog() {
         val builder = AlertDialog.Builder(this)
         val inflater = layoutInflater
-        builder.setTitle("With EditText")
+        builder.setTitle("Add Code")
         val dialogLayout = inflater.inflate(R.layout.alert_dialog_with_edittext, null)
         val editText = dialogLayout.findViewById<EditText>(R.id.code_editText)
         builder.setView(dialogLayout)
         builder.setNegativeButton("Cancel") { _, _ -> }
         builder.setPositiveButton("OK") { _, _ -> addCode(editText.text.toString().toInt()) }
         builder.show()
+    }
+
+    private fun editNameDialog() {
+        val builder = AlertDialog.Builder(this)
+        val inflater = layoutInflater
+        builder.setTitle("Edit Name")
+        val dialogLayout = inflater.inflate(R.layout.alert_dialog_with_edittext, null)
+        val editText = dialogLayout.findViewById<EditText>(R.id.code_editText)
+        editText.inputType = InputType.TYPE_TEXT_FLAG_CAP_WORDS
+        builder.setView(dialogLayout)
+        builder.setNegativeButton("Cancel") { _, _ -> }
+        builder.setPositiveButton("OK") { _, _ -> editName(editText.text.toString()) }
+        builder.show()
+    }
+
+    private fun editName(newName: String) {
+        val product = productWithCodes.product ?: return
+        product.name = newName
+        productViewModel.updateProduct(product)
+        productViewModel.queryProduct(id = productID)
     }
 
     private fun addCode(codeNumber: Int) {

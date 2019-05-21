@@ -58,4 +58,6 @@ dependencies {
     kapt "androidx.lifecycle:lifecycle-compiler:2.2.0-alpha01"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.0"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.0"
+
+    implementation 'com.opencsv:opencsv:4.6'
 }
